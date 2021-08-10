@@ -1,3 +1,5 @@
+<img align="left" src="/gis_baby_s21.png" width="300">
+
 Charlie is the director of the GIS Center for Interdisciplinary Research at Skidmore College
 
 He's a bigtime generalist with lots of research interests:
