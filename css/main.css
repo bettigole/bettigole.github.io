@@ -24,6 +24,15 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+li a {
+    text-decoration: none;
+    color: #999;
+}
+li a:hover {
+    text-decoration: underline;
+}
+
 h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
