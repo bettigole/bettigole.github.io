@@ -3,24 +3,23 @@ body {
     width: 70%;
 }
 
+body li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
 nav {
     border-bottom: 1px solid #d5d5d5;
     font-size: 1.2em; 
 }
 
-nav ul {
+nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
     
 }
-footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-}
+
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
@@ -64,8 +63,4 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
-}
-
-li:not(:last-child) {
-    margin-bottom: 5px;
 }
