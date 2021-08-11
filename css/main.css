@@ -2,7 +2,20 @@ body {
     margin: 60px auto;
     width: 70%;
 }
-nav ul, footer ul {
+
+nav {
+    border-bottom: 1px solid #d5d5d5;
+    font-size: 1.2em; 
+}
+
+nav ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    
+}
+footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
@@ -11,10 +24,6 @@ nav ul, footer ul {
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
-}
-nav {
-    border-bottom: 1px solid #d5d5d5;
-    font-size: 1.2em; 
 }
 
 a {
