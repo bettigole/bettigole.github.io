@@ -34,11 +34,11 @@ a:hover {
     text-decoration: underline;
 }
 
-li a {
+nav li a, footer li a {
     text-decoration: none;
     color: #999;
 }
-li a:hover {
+nav li a:hover, footer li a:hover {
     text-decoration: underline;
 }
 
