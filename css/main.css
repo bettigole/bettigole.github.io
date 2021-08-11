@@ -3,7 +3,7 @@ body {
     width: 70%;
 }
 
-body li:not(:last-child) {
+ul li:not(:last-child) {
     margin-bottom: 5px;
 }
 
