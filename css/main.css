@@ -12,6 +12,11 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
+nav {
+    border-bottom: 1px solid #d5d5d5;
+    font-size: 1.2em; 
+}
+
 a {
     text-decoration: none;
     color: #475BEC;
@@ -28,10 +33,7 @@ p {
     line-height: 1.4em;
     color: #333;
 }
-header {
-    border-bottom: 1px solid #d5d5d5;
-    font-size: 1.2em; 
-}
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
