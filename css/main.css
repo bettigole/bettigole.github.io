@@ -3,10 +3,6 @@ body {
     width: 70%;
 }
 
-ul li:not(:last-child) {
-    margin-bottom: 5px;
-}
-
 nav {
     border-bottom: 1px solid #d5d5d5;
     font-size: 1.2em; 
