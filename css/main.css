@@ -5,7 +5,7 @@ body {
 
 nav {
     border-bottom: 1px solid #d5d5d5;
-    font-size: 1.2em; 
+    font-size: 2em; 
 }
 
 nav ul, footer ul {
@@ -42,8 +42,8 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1em;
-    line-height: 1em;
+    font-size: 0.5em;
+    line-height: 0.5em;
     color: #333;
 }
 
