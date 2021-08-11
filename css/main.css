@@ -5,12 +5,12 @@ body {
 
 nav {
     border-bottom: 1px solid #d5d5d5;
-    font-size: 2em; 
+    font-size: 1.3em; 
 }
 
 ul li {
     font-size: 1em;
-    line-spacing: 1em;
+    line-spacing: 1.5em;
 }        
 
 nav ul, footer ul {
