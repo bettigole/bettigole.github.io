@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anaya Arroyo Results</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background: #f9f7f4;
+    color: #2a2a2a;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  header {
+    background: #2a3a2a;
+    color: #e8e0d0;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.8rem; font-weight: normal; letter-spacing: 0.03em; }
+  header p  { margin-top: 0.6rem; font-size: 1rem; opacity: 0.75; }
+
+  /* ── Layout ── */
+  main { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── Intro box ── */
+  .intro {
+    background: #fff;
+    border-left: 4px solid #4a9a4a;
+    padding: 1.4rem 1.5rem 1.2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.97rem;
+  }
+  .intro h2 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #2a3a2a; }
+
+  /* ── Section card ── */
+  .section-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+  .section-header {
+    background: #2a3a2a;
+    color: #e8e0d0;
+    padding: 1rem 1.5rem;
+  }
+  .section-header h2 { font-size: 1.15rem; font-weight: normal; }
+  .section-body { padding: 1.5rem; }
+
+  /* ── Caption ── */
+  .caption {
+    font-size: 0.88rem;
+    color: #555;
+    margin-top: 0.8rem;
+    line-height: 1.6;
+  }
+  .caption strong { color: #2a2a2a; }
+
+  /* ── Canvas chart containers ── */
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0 0.5rem;
+  }
+  canvas { display: block; width: 100% !important; }
+  .stats-table th {
+    background: #eef2ee;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-weight: bold;
+    border-bottom: 2px solid #cdd8cd;
+  }
+  .stats-table td {
+    padding: 0.45rem 0.75rem;
+    border-bottom: 1px solid #eee;
+  }
+  .stats-table tr.ctrl-row td {
+    background: #fff5f5;
+    font-weight: bold;
+  }
+  .stats-table td.sig { font-weight: bold; }
+  .stats-table td.sig-3 { color: #c00; }
+  .stats-table td.sig-2 { color: #d44; }
+  .stats-table td.sig-1 { color: #e77; }
+  .stats-table td.sig-ns { color: #999; }
+
+  /* ── Legend key ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.2rem;
+    margin: 0.8rem 0 0.3rem;
+    font-size: 0.83rem;
+  }
+  .legend-item { display: flex; align-items: center; gap: 0.35rem; }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Significance guide ── */
+  .sig-guide {
+    background: #f0f4f0;
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.9rem;
+  }
+  .sig-guide h2 { font-size: 1rem; margin-bottom: 0.7rem; color: #2a3a2a; }
+  .sig-guide table { border-collapse: collapse; width: 100%; }
+  .sig-guide td { padding: 0.3rem 0.6rem; }
+  .sig-guide td:first-child { font-weight: bold; font-family: monospace; font-size: 1rem; width: 80px; }
+</style>
+</head>
+<body>
+
+<main>
+
+<!-- Intro -->
+<div class="intro">
+  <h2>What this study measured</h2>
+  <p>After the summer monsoon in September 2025, four restored arroyos (stream channels) were compared against one undisturbed control arroyo, <strong>Westward Ho</strong>. The restored arroyos have small earthen or rock check dams installed to slow water flow and increase soil moisture. Each chart below shows whether the treatment arroyos differ meaningfully from the control — and how confident we are in those differences. Significance codes appear to the right of each bar.</p>
+</div>
+
+<!-- Significance guide -->
+<div class="sig-guide">
+  <h2>How to read the significance codes</h2>
+  <p style="margin-bottom:0.6rem">The codes shown to the right of each bar in the charts compare each restored arroyo to the control using a <em>Mann-Whitney U test</em> — a way to ask "could this difference just be random chance?" The code in the <strong>Sig.</strong> column tells you how confident we can be that the difference is real:</p>
+  <table>
+    <tr><td style="color:#c00">***</td><td>Extremely strong evidence of a real difference (less than 1-in-1000 chance it's random)</td></tr>
+    <tr><td style="color:#d44">**</td><td>Strong evidence (less than 1-in-100 chance it's random)</td></tr>
+    <tr><td style="color:#e77">*</td><td>Moderate evidence (less than 1-in-20 chance it's random)</td></tr>
+    <tr><td style="color:#999">ns</td><td>Not significant — the difference could easily be random</td></tr>
+    <tr><td>—</td><td>This is the control arroyo — everything else is compared to it</td></tr>
+  </table>
+</div>
+
+<!-- ── A. Sensor Moisture ── -->
+<div class="section-card">
+  <div class="section-header">
+    <h2>A. Soil Moisture — Sensor Readings</h2>
+  </div>
+  <div class="section-body">
+    <div class="legend" id="legend-sensor"></div>
+    <div class="chart-wrap"><canvas id="chart-sensor" height="320"></canvas></div>
+    <p class="caption">
+      <strong>What this shows:</strong> Surface soil moisture (%) measured by sensors placed just above the check dams at each arroyo, with hundreds of readings per site. Each box shows the middle 50% of readings; the line inside is the median; the whiskers extend to the typical range; dots are outliers.
+      <br><strong>Key takeaway:</strong> All four restored arroyos have significantly higher surface soil moisture than the control — roughly twice as wet on average. Check dams are trapping water right at the soil surface.
+    </p>
+  </div>
+</div>
+
+<!-- ── B. Pit Moisture ── -->
+<div class="section-card">
+  <div class="section-header">
+    <h2>B. Soil Moisture — Pit Samples</h2>
+  </div>
+  <div class="section-body">
+    <div class="legend" id="legend-pit"></div>
+    <div class="chart-wrap"><canvas id="chart-pit" height="300"></canvas></div>
+    <p class="caption">
+      <strong>What this shows:</strong> Deeper soil moisture measured by digging pits up to 12 inches deep at each arroyo and testing the soil directly. This reveals whether moisture is penetrating below the surface — not just sitting on top.
+      <br><strong>Key takeaway:</strong> All four restored arroyos show significantly higher deep soil moisture than Westward Ho — confirming that the effect of the check dams extends well below the surface.
+    </p>
+  </div>
+</div>
+
+<!-- ── C. Bare Ground ── -->
+<div class="section-card">
+  <div class="section-header">
+    <h2>C. Percent Bare Ground</h2>
+  </div>
+  <div class="section-body">
+    <div class="legend" id="legend-bare"></div>
+    <div class="chart-wrap"><canvas id="chart-bare" height="300"></canvas></div>
+    <p class="caption">
+      <strong>What this shows:</strong> The percentage of ground at each site that has no vegetation — just exposed soil. High bare ground means little plant cover; low bare ground means more vegetation has established.
+      <br><strong>Key takeaway:</strong> The control arroyo (Westward Ho) averages ~90% bare ground. All restored arroyos have meaningfully less bare ground, suggesting plants are beginning to take hold where moisture is higher.
+    </p>
+  </div>
+</div>
+
+<!-- ── D. Plant Diversity ── -->
+<div class="section-card">
+  <div class="section-header">
+    <h2>D. Plant Family Diversity</h2>
+  </div>
+  <div class="section-body">
+    <div class="legend" id="legend-div"></div>
+    <div class="chart-wrap"><canvas id="chart-div" height="300"></canvas></div>
+    <p class="caption">
+      <strong>What this shows:</strong> The number of different plant families observed at each arroyo. More families = more diverse plant community, which generally indicates a healthier ecosystem.
+      <br><strong>Key takeaway:</strong> Three of four restored arroyos show significantly more plant diversity than the control. Cairn is the exception (p = 0.055), possibly because it had the smallest moisture gains.
+    </p>
+  </div>
+</div>
+
+<!-- ── E. Scatter ── -->
+<div class="section-card">
+  <div class="section-header">
+    <h2>E. Moisture vs. Plant Diversity</h2>
+  </div>
+  <div class="section-body">
+    <div class="legend" id="legend-scatter"></div>
+    <div class="chart-wrap"><canvas id="chart-scatter" height="340"></canvas></div>
+    <p class="caption">
+      <strong>What this shows:</strong> Each dot is one sampling location, plotted by its soil moisture (horizontal axis) and number of plant families found (vertical axis). The dashed line is a trend line fitted across all sites. The <strong>R²</strong> value (shown on the chart) measures how well soil moisture predicts plant diversity — it ranges from 0 (no relationship) to 1 (perfect relationship).
+      <br><strong>Key takeaway:</strong> There is a positive relationship — wetter soils tend to support more diverse plant communities (R² = 0.24). This means soil moisture accounts for about <strong>24% of the variation</strong> in plant diversity across sites. That's a meaningful signal: other factors like soil type, seed availability, and time since restoration also play a role, but moisture is clearly part of the story. The check dams aren't just adding moisture in isolation — they're helping drive ecological recovery.
+    </p>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────
+const COLORS = {"Cairn":"#7FCDBB","Dammed":"#41B6C4","Fenceline":"#1D91C0","Rock Ledge":"#225EA8","Sauna":"#0C2C84","Westward Ho":"#D7301F"};
+const ARROYOS = ["Cairn","Dammed","Fenceline","Rock Ledge","Sauna","Westward Ho"];
+
+const SENSOR = {"Cairn":[11.9,11.2,7.5,13.6,11.8,8.4,8.2,17.0,4.9,15.5,13.6,12.6,10.6,12.8,5.4,7.6,5.4,7.2,11.1,8.5,5.1,10.6,9.2,8.5,6.8,6.3,5.9,5.0,19.7,14.1,3.4,8.4,9.5,11.3,15.7,8.3,19.2,10.6,18.6,9.6,6.9,8.9,14.5,8.3,7.0,6.3,6.1,8.3,21.1,15.2,10.8,24.2,4.7,25.4,9.9,7.7,11.2,19.3,7.3,11.0,14.9,9.5,10.0,16.2,6.0,7.5,12.2,17.4,7.0,19.1,9.0,10.5,19.2,16.8,11.5,8.4,9.1,9.1,7.8,9.2,9.7,8.4,18.5,12.6,8.8,9.4,6.3,13.4,13.2,7.2,8.0,3.6,11.6,12.5,14.3,7.0,10.2,7.8,14.0,9.8,19.9,22.4,7.1,12.5,13.9,5.0,6.8,7.9,5.8,10.8,5.7,6.1,6.7,5.5,9.2,3.1,17.3,2.5,3.5,6.3,12.7,1.5,2.4,6.0],"Dammed":[28.1,23.6,20.4,17.7,13.4,17.6,16.7,18.3,13.4,17.0,11.8,13.4,7.5,10.8,8.6,12.1,14.6,14.1,7.9,14.1,14.7,10.2,12.6,10.8,20.3,10.7,8.6,8.0,7.9,11.5,13.2,10.2,10.5,7.9,6.1,14.7,15.9,8.4,19.6,17.2,10.4,13.6,11.9,11.1,5.6,9.3,7.4,25.5,8.9,11.8,3.7,8.5,16.7,25.0,17.9,13.7,6.5,19.1,15.2,13.6,10.1,11.7,9.8,13.0,11.4,8.7,9.4,6.6,8.5,16.9,15.5,9.8,5.5,12.4,8.9,5.9,5.7,13.7,13.5],"Fenceline":[10.3,10.0,7.8,3.7,6.9,3.5,6.7,7.8,5.5,11.1,8.4,9.4,9.1,9.3,5.7,6.6,9.5,5.9,12.8,3.7,17.6,24.9,25.9,7.9,14.5,10.8,16.5,8.2,3.5,7.3,18.6,11.3,8.1,9.5,11.5,21.7,30.7,38.8,34.3,43.8,4.2,15.7,32.0,36.5,33.0,15.3,24.9,22.3,28.9,30.4,11.8,20.0,13.5,19.7,26.1,22.6,2.9,2.8,30.1,29.0,6.2,22.0,23.7,26.2,19.0,17.8,10.7,25.1,17.8,17.2,30.8,21.9,10.1,17.9,24.1,27.6,22.5,22.0,14.6,15.1,10.2,7.2,5.5,22.5,21.4,9.6,8.5,13.6,20.4,8.7,9.4,11.7,20.5,26.1,7.9,19.9,12.0,18.2,30.0,19.4,20.0,15.9,11.4,12.6,18.8,26.4,22.7,25.5,17.1,7.1,14.0,9.4,7.2,10.3,13.9,12.3,5.1,20.0,13.0,21.9,7.9,13.5,13.7,8.4,14.4,11.1,10.7,9.7,10.2,11.9,14.0,8.0,4.5,9.4,5.2,2.3,5.0,6.9,6.9,6.6,11.4,12.9,5.2,5.7,5.7,10.9,4.9,6.2,4.4,3.9,5.7,9.4,5.5,3.5,2.6,13.8],"Rock Ledge":[5.9,6.8,10.1,5.9,8.2,9.0,13.6,13.6,13.6,7.4,4.8,7.6,7.1,12.9,13.6,11.6,11.2,4.6,10.2,6.8,10.2,12.3,8.9,8.4,8.5,9.1,13.8,12.4,8.5,11.7,6.6,6.6,8.9,9.2,8.0,5.8,8.9,3.6,14.9,10.7,4.6,10.7,9.6,9.8,7.0,13.5,10.9,13.0,7.9,10.6,12.7,13.0,10.0,10.9,10.4,9.9,5.3,8.8,12.5,12.9,10.1,4.4,7.0,11.3,5.9,12.9,6.5,6.3,15.9,15.2,12.0,11.7,15.2,28.3,7.2,6.9,10.6,7.1,6.4,4.2,3.0,7.8,6.4,10.2,9.1,11.1,9.4,6.3,6.4,9.1,6.7,1.9,12.1,12.2,9.7,19.7,10.8,11.5,9.8,9.6,18.1,7.0,9.9,13.6],"Sauna":[9.3,11.2,12.9,9.3,5.7,10.1,14.6,12.3,8.9,7.9,7.8,14.7,11.1,5.0,8.5,13.1,20.3,15.9,12.2,9.0,13.6,14.2,11.3,10.1,10.9,13.4,11.7,13.9,22.7,15.6,20.5,28.2,17.8,8.1,26.0,17.8,15.2,20.8,16.4,19.1,19.1,14.6,19.7,25.6,22.9,41.8,21.8,21.5,17.1,12.4,18.3,13.1,14.7,15.8,22.1,9.4,13.1,11.4,13.8,8.4,10.8,10.8,8.6,14.1,11.1,13.3,10.9,13.6,25.0,19.5,20.0,19.7,29.8,12.7,17.4,15.8,16.8,10.1,13.0,9.0,13.4,15.0,19.4,9.1,12.4,17.2,13.4,18.4,17.4,13.1,11.8,15.5,8.2,9.4,9.0,10.3,7.3,14.3,7.3,4.9,4.2,5.1,3.6,2.5,2.7,0.0,0.0,7.5,8.1,14.6,14.4,22.9,16.6,7.5,7.6,18.7,10.4,8.2,12.9,11.6,13.4,26.7,24.8,20.7,22.5,15.9,20.7,15.2,19.2,15.1,12.4,12.5,14.1],"Westward Ho":[11.9,14.6,5.2,7.6,8.7,9.1,5.4,6.7,11.3,9.9,6.6,20.3,8.5,5.6,13.3,13.9,14.1,10.6,10.4,13.8,7.7,6.5,10.5,12.3,12.2,10.1,6.8,5.4,4.5,3.8,7.2,9.9,8.4,8.4,7.9,2.4,4.3,7.9,6.7,10.1,6.3,9.0,3.0,3.0,3.0,0.7,5.1,5.9,2.9,3.2,5.4,3.5,0.0,13.6,3.4,5.0,4.3,3.3,0.0,2.3,2.6,3.3,2.6,0.0,0.0,3.6,0.0,5.5,1.7,7.7,4.9,3.0,8.0,6.6,2.0,2.2,6.2,1.9,3.4,3.5,2.0,9.0,8.5,4.8,6.1,2.3,9.5,4.5,2.9,1.8,2.9,2.9,2.7,5.8,15.2,2.6,5.6,3.3,1.0,5.1,0.0,0.0,3.6,1.5,0.1,0.0,0.0,11.5,18.8,15.0,6.0,0.9,16.6,7.0,29.6,13.0,25.1,11.5,23.1,18.4,6.3,5.8,7.5,3.6,12.0,6.5,8.1,6.9,4.7,10.1,8.9,6.3,7.6,11.7,5.3,7.3,13.5,9.4,7.6,14.0,6.0,1.6,9.1,6.6,6.1,5.5,5.4,7.6,3.1,3.4,3.3,6.5,10.1,4.3,2.2,0.0,0.0,3.2]};
+const PIT  = {"Cairn":[8.7,13.4,12.0,8.6,6.3,7.4,19.8,8.0],"Dammed":[20.9,8.7,16.1,17.2,11.3,14.1],"Fenceline":[14.8,12.5,16.9,14.9,16.5,15.3,9.9,12.0,6.6],"Sauna":[15.2,11.1,30.2,14.9,10.0,11.5,11.0,8.2,9.1,30.7],"Westward Ho":[9.2,9.9,20.1,6.7,4.0,3.7,5.8,3.2,2.3,6.6,6.1,7.1,3.2,6.1]};
+const BARE = {"Cairn":[85,90,80,75,70,90,75,90],"Dammed":[60,60,65,40,65,80],"Fenceline":[45,55,55,70,70,75,70,90,90],"Sauna":[50,60,55,50,80,70,75,90,70,50],"Westward Ho":[80,100,90,95,100,85,100,95,96,85,75,90,80,95]};
+const DIV  = {"Cairn":[2,3,3,3,3,4,6,4],"Dammed":[5,4,9,5,6],"Fenceline":[3,5,6,3,4,5,5,3,2],"Sauna":[3,6,7,8,5,9,5,5,4,6],"Westward Ho":[3,0,1,1,0,3,0,1,3,3,5,4,2,3]};
+const SCATTER = [{"arroyo":"Westward Ho","pit":9.2,"div":3},{"arroyo":"Westward Ho","pit":9.9,"div":0},{"arroyo":"Westward Ho","pit":20.1,"div":1},{"arroyo":"Westward Ho","pit":6.7,"div":1},{"arroyo":"Westward Ho","pit":4.0,"div":0},{"arroyo":"Westward Ho","pit":3.7,"div":3},{"arroyo":"Westward Ho","pit":5.8,"div":0},{"arroyo":"Westward Ho","pit":3.2,"div":1},{"arroyo":"Westward Ho","pit":2.3,"div":3},{"arroyo":"Westward Ho","pit":6.6,"div":3},{"arroyo":"Westward Ho","pit":6.1,"div":5},{"arroyo":"Westward Ho","pit":7.1,"div":4},{"arroyo":"Westward Ho","pit":3.2,"div":2},{"arroyo":"Westward Ho","pit":6.1,"div":3},{"arroyo":"Sauna","pit":15.2,"div":3},{"arroyo":"Sauna","pit":11.1,"div":6},{"arroyo":"Sauna","pit":30.2,"div":7},{"arroyo":"Sauna","pit":14.9,"div":8},{"arroyo":"Sauna","pit":10.0,"div":5},{"arroyo":"Sauna","pit":11.5,"div":9},{"arroyo":"Sauna","pit":11.0,"div":5},{"arroyo":"Sauna","pit":8.2,"div":5},{"arroyo":"Sauna","pit":9.1,"div":4},{"arroyo":"Sauna","pit":30.7,"div":6},{"arroyo":"Dammed","pit":8.7,"div":5},{"arroyo":"Dammed","pit":16.1,"div":4},{"arroyo":"Dammed","pit":17.2,"div":9},{"arroyo":"Dammed","pit":11.3,"div":5},{"arroyo":"Dammed","pit":14.1,"div":6},{"arroyo":"Fenceline","pit":14.8,"div":3},{"arroyo":"Fenceline","pit":12.5,"div":5},{"arroyo":"Fenceline","pit":16.9,"div":6},{"arroyo":"Fenceline","pit":14.9,"div":3},{"arroyo":"Fenceline","pit":16.5,"div":4},{"arroyo":"Fenceline","pit":15.3,"div":5},{"arroyo":"Fenceline","pit":9.9,"div":5},{"arroyo":"Fenceline","pit":12.0,"div":3},{"arroyo":"Fenceline","pit":6.6,"div":2},{"arroyo":"Cairn","pit":8.7,"div":2},{"arroyo":"Cairn","pit":13.4,"div":3},{"arroyo":"Cairn","pit":12.0,"div":3},{"arroyo":"Cairn","pit":8.6,"div":3},{"arroyo":"Cairn","pit":6.3,"div":3},{"arroyo":"Cairn","pit":7.4,"div":4},{"arroyo":"Cairn","pit":19.8,"div":6},{"arroyo":"Cairn","pit":8.0,"div":4}];
+
+const SENSOR_STATS = [{"arroyo":"Cairn","n":124,"median":9.2,"mean":10.3,"sd":4.8,"p":0.0,"sig":"***","is_ctrl":false},{"arroyo":"Dammed","n":79,"median":11.8,"mean":12.6,"sd":4.9,"p":0.0,"sig":"***","is_ctrl":false},{"arroyo":"Fenceline","n":156,"median":11.8,"mean":14.3,"sd":8.6,"p":0.0,"sig":"***","is_ctrl":false},{"arroyo":"Rock Ledge","n":104,"median":9.6,"mean":9.7,"sd":3.7,"p":0.0,"sig":"***","is_ctrl":false},{"arroyo":"Sauna","n":133,"median":13.4,"mean":14.0,"sd":6.2,"p":0.0,"sig":"***","is_ctrl":false},{"arroyo":"Westward Ho","n":158,"median":6.0,"mean":6.7,"sd":5.1,"p":null,"sig":"—","is_ctrl":true}];
+const PIT_STATS   = [{"arroyo":"Cairn","n":8,"median":8.6,"mean":10.5,"sd":4.4,"p":0.0185,"sig":"*","is_ctrl":false},{"arroyo":"Dammed","n":6,"median":15.1,"mean":14.7,"sd":4.3,"p":0.0044,"sig":"**","is_ctrl":false},{"arroyo":"Fenceline","n":9,"median":14.8,"mean":13.3,"sd":3.4,"p":0.0022,"sig":"**","is_ctrl":false},{"arroyo":"Sauna","n":10,"median":11.3,"mean":15.2,"sd":8.3,"p":0.0008,"sig":"***","is_ctrl":false},{"arroyo":"Westward Ho","n":14,"median":6.1,"mean":6.7,"sd":4.5,"p":null,"sig":"—","is_ctrl":true}];
+const BARE_STATS  = [{"arroyo":"Cairn","n":8,"median":82.5,"mean":81.9,"sd":8.0,"p":0.0352,"sig":"*","is_ctrl":false},{"arroyo":"Dammed","n":6,"median":62.5,"mean":61.7,"sd":12.9,"p":0.001,"sig":"**","is_ctrl":false},{"arroyo":"Fenceline","n":9,"median":70.0,"mean":68.9,"sd":15.4,"p":0.0015,"sig":"**","is_ctrl":false},{"arroyo":"Sauna","n":10,"median":65.0,"mean":65.0,"sd":14.1,"p":0.0003,"sig":"***","is_ctrl":false},{"arroyo":"Westward Ho","n":14,"median":92.5,"mean":90.4,"sd":8.2,"p":null,"sig":"—","is_ctrl":true}];
+const DIV_STATS   = [{"arroyo":"Cairn","n":8,"median":3.0,"mean":3.5,"sd":1.2,"p":0.0553,"sig":"ns","is_ctrl":false},{"arroyo":"Dammed","n":5,"median":5.0,"mean":5.8,"sd":1.9,"p":0.0026,"sig":"**","is_ctrl":false},{"arroyo":"Fenceline","n":9,"median":4.0,"mean":4.0,"sd":1.3,"p":0.0128,"sig":"*","is_ctrl":false},{"arroyo":"Sauna","n":10,"median":5.5,"mean":5.8,"sd":1.8,"p":0.0002,"sig":"***","is_ctrl":false},{"arroyo":"Westward Ho","n":14,"median":2.5,"mean":2.1,"sd":1.6,"p":null,"sig":"—","is_ctrl":true}];
+
+// ── Helpers ───────────────────────────────────────────────────
+function boxStats(arr) {
+  const s = [...arr].sort((a,b)=>a-b);
+  const n = s.length;
+  const q = p => { const i=(p/100)*(n-1); const lo=Math.floor(i),hi=Math.ceil(i); return s[lo]+(s[hi]-s[lo])*(i-lo); };
+  return { min:s[0], q1:q(25), med:q(50), q3:q(75), max:s[n-1],
+           iqr: q(75)-q(25), mean: arr.reduce((a,b)=>a+b,0)/n };
+}
+
+function buildLegend(elId, arroyos) {
+  const el = document.getElementById(elId);
+  arroyos.forEach(a => {
+    const item = document.createElement('div');
+    item.className = 'legend-item';
+    item.innerHTML = `<span class="legend-dot" style="background:${COLORS[a]}"></span><span>${a}${a==='Westward Ho'?' (control)':''}</span>`;
+    el.appendChild(item);
+  });
+}
+
+
+// ── Box plot renderer (pure Canvas) ──────────────────────────
+// Stats maps keyed by arroyo name → sig code
+const SIG_SENSOR = {"Cairn":"***","Dammed":"***","Fenceline":"***","Sauna":"***","Westward Ho":"—"};
+const SIG_PIT    = {"Cairn":"*","Dammed":"**","Fenceline":"**","Sauna":"***","Westward Ho":"—"};
+const SIG_BARE   = {"Cairn":"*","Dammed":"**","Fenceline":"**","Sauna":"***","Westward Ho":"—"};
+const SIG_DIV    = {"Cairn":"ns","Dammed":"**","Fenceline":"*","Sauna":"***","Westward Ho":"—"};
+
+function sigColor(sig) {
+  if (sig==='***') return '#b00';
+  if (sig==='**')  return '#c44';
+  if (sig==='*')   return '#d88';
+  if (sig==='ns')  return '#aaa';
+  return '#888';
+}
+
+function drawBoxPlot(canvasId, dataset, arroyos, xLabel, xMin, xMax, sigMap) {
+  const cvs = document.getElementById(canvasId);
+  const dpr = window.devicePixelRatio || 1;
+  const W = cvs.offsetWidth, H = cvs.height;
+  cvs.width  = W * dpr;
+  cvs.height = H * dpr;
+  const ctx = cvs.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const PAD = { l:90, r:30, t:20, b:50 };
+  const cW = W - PAD.l - PAD.r;
+  const cH = H - PAD.t - PAD.b;
+
+  const xScale = v => PAD.l + (v - xMin) / (xMax - xMin) * cW;
+  const arrs = arroyos.filter(a => dataset[a]);
+  const n = arrs.length;
+  const slotH = cH / n;
+  const boxH = Math.min(slotH * 0.5, 32);
+  const yCentre = i => PAD.t + (i + 0.5) * slotH;
+
+  // Gridlines
+  ctx.strokeStyle = '#eee'; ctx.lineWidth = 1;
+  for (let v = xMin; v <= xMax; v += (xMax-xMin)/4) {
+    const x = xScale(v);
+    ctx.beginPath(); ctx.moveTo(x, PAD.t); ctx.lineTo(x, PAD.t+cH); ctx.stroke();
+  }
+
+  // X axis
+  ctx.strokeStyle = '#ccc'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD.l, PAD.t+cH); ctx.lineTo(PAD.l+cW, PAD.t+cH); ctx.stroke();
+
+  // X ticks + labels
+  ctx.fillStyle = '#888'; ctx.font = '11px Georgia'; ctx.textAlign = 'center';
+  for (let v = xMin; v <= xMax; v += (xMax-xMin)/4) {
+    const x = xScale(v);
+    ctx.beginPath(); ctx.moveTo(x, PAD.t+cH); ctx.lineTo(x, PAD.t+cH+5); ctx.stroke();
+    ctx.fillText(v, x, PAD.t+cH+18);
+  }
+  ctx.fillStyle='#666'; ctx.font='12px Georgia';
+  ctx.fillText(xLabel, PAD.l + cW/2, H - 8);
+
+  // Each box
+  arrs.forEach((arr, i) => {
+    const vals = dataset[arr];
+    const s = boxStats(vals);
+    const cy = yCentre(i);
+    const col = COLORS[arr];
+
+    // Whisker line
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+    const lo = Math.max(s.q1 - 1.5*s.iqr, s.min);
+    const hi = Math.min(s.q3 + 1.5*s.iqr, s.max);
+    ctx.beginPath(); ctx.moveTo(xScale(lo), cy); ctx.lineTo(xScale(hi), cy); ctx.stroke();
+    // Whisker caps
+    [lo, hi].forEach(v => {
+      ctx.beginPath(); ctx.moveTo(xScale(v), cy-4); ctx.lineTo(xScale(v), cy+4); ctx.stroke();
+    });
+    // Box
+    ctx.fillStyle = col + '55';
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+    ctx.fillRect(xScale(s.q1), cy-boxH/2, xScale(s.q3)-xScale(s.q1), boxH);
+    ctx.strokeRect(xScale(s.q1), cy-boxH/2, xScale(s.q3)-xScale(s.q1), boxH);
+    // Median line
+    ctx.strokeStyle = col; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(xScale(s.med), cy-boxH/2); ctx.lineTo(xScale(s.med), cy+boxH/2); ctx.stroke();
+    // Outliers
+    ctx.fillStyle = col + 'bb';
+    vals.forEach(v => {
+      if (v < lo || v > hi) {
+        ctx.beginPath(); ctx.arc(xScale(v), cy, 3, 0, Math.PI*2); ctx.fill();
+      }
+    });
+    // Jitter points (subsample)
+    ctx.fillStyle = col + '55';
+    const samp = vals.length > 60 ? vals.filter((_,i)=>i%3===0) : vals;
+    samp.forEach(v => {
+      const jitter = (Math.random()-0.5)*boxH*0.7;
+      ctx.beginPath(); ctx.arc(xScale(v), cy+jitter, 2, 0, Math.PI*2); ctx.fill();
+    });
+
+    // Y label — arroyo name
+    ctx.fillStyle = '#2a2a2a'; ctx.font = 'bold 12px Georgia'; ctx.textAlign = 'right';
+    ctx.fillText(arr, PAD.l - 8, cy - 5);
+    // Sig code on the line below the arroyo name
+    if (sigMap) {
+      const sig = sigMap[arr] || '';
+      ctx.font = '11px Georgia';
+      ctx.fillStyle = sig === '—' ? '#888' : sigColor(sig);
+      ctx.fillText(sig, PAD.l - 8, cy + 9);
+    }
+
+
+  });
+}
+
+// ── Scatter renderer ──────────────────────────────────────────
+function drawScatter(canvasId, pts, xLabel, yLabel) {
+  const cvs = document.getElementById(canvasId);
+  const dpr = window.devicePixelRatio || 1;
+  const W = cvs.offsetWidth, H = cvs.height;
+  cvs.width = W*dpr; cvs.height = H*dpr;
+  const ctx = cvs.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  const PAD={l:55,r:20,t:20,b:50};
+  const cW=W-PAD.l-PAD.r, cH=H-PAD.t-PAD.b;
+  const xs=pts.map(p=>p.pit), ys=pts.map(p=>p.div);
+  const xMin=0, xMax=35, yMin=0, yMax=10;
+  const sx=v=>PAD.l+(v-xMin)/(xMax-xMin)*cW;
+  const sy=v=>PAD.t+cH-(v-yMin)/(yMax-yMin)*cH;
+
+  // Gridlines
+  ctx.strokeStyle='#eee'; ctx.lineWidth=1;
+  [5,10,15,20,25,30].forEach(v=>{ctx.beginPath();ctx.moveTo(sx(v),PAD.t);ctx.lineTo(sx(v),PAD.t+cH);ctx.stroke();});
+  [2,4,6,8].forEach(v=>{ctx.beginPath();ctx.moveTo(PAD.l,sy(v));ctx.lineTo(PAD.l+cW,sy(v));ctx.stroke();});
+
+  // Axes
+  ctx.strokeStyle='#ccc'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(PAD.l,PAD.t); ctx.lineTo(PAD.l,PAD.t+cH); ctx.lineTo(PAD.l+cW,PAD.t+cH); ctx.stroke();
+
+  // Tick labels
+  ctx.fillStyle='#888'; ctx.font='11px Georgia';
+  ctx.textAlign='center';
+  [0,5,10,15,20,25,30].forEach(v=>{
+    ctx.beginPath();ctx.moveTo(sx(v),PAD.t+cH);ctx.lineTo(sx(v),PAD.t+cH+5);ctx.stroke();
+    ctx.fillText(v,sx(v),PAD.t+cH+18);
+  });
+  ctx.textAlign='right';
+  [0,2,4,6,8,10].forEach(v=>{
+    ctx.beginPath();ctx.moveTo(PAD.l,sy(v));ctx.lineTo(PAD.l-5,sy(v));ctx.stroke();
+    ctx.fillText(v,PAD.l-8,sy(v)+4);
+  });
+
+  // Axis labels
+  ctx.fillStyle='#666'; ctx.font='12px Georgia'; ctx.textAlign='center';
+  ctx.fillText(xLabel,PAD.l+cW/2,H-8);
+  ctx.save(); ctx.translate(14,PAD.t+cH/2); ctx.rotate(-Math.PI/2); ctx.fillText(yLabel,0,0); ctx.restore();
+
+  // Trend line (simple linear regression)
+  const n=pts.length;
+  const mx=xs.reduce((a,b)=>a+b)/n, my=ys.reduce((a,b)=>a+b)/n;
+  const num=xs.reduce((s,x,i)=>s+(x-mx)*(ys[i]-my),0);
+  const den=xs.reduce((s,x)=>s+(x-mx)**2,0);
+  const slope=num/den, intercept=my-slope*mx;
+  ctx.strokeStyle='#88888855'; ctx.lineWidth=2; ctx.setLineDash([6,4]);
+  ctx.beginPath(); ctx.moveTo(sx(xMin),sy(slope*xMin+intercept)); ctx.lineTo(sx(xMax),sy(slope*xMax+intercept)); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // R² annotation
+  const r2 = 1 - xs.reduce((s,x,i)=>s+(ys[i]-(slope*x+intercept))**2,0) /
+                  ys.reduce((s,y)=>s+(y-my)**2,0);
+  ctx.fillStyle='#444'; ctx.font='bold 13px Georgia'; ctx.textAlign='left';
+  ctx.fillText(`R² = ${r2.toFixed(2)}`, PAD.l+8, PAD.t+20);
+
+  // Dots
+  pts.forEach(p=>{
+    ctx.fillStyle=COLORS[p.arroyo]+'cc';
+    ctx.strokeStyle=COLORS[p.arroyo]; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.arc(sx(p.pit),sy(p.div),5,0,Math.PI*2);
+    ctx.fill(); ctx.stroke();
+  });
+}
+
+// ── Build everything ──────────────────────────────────────────
+window.addEventListener('load', () => {
+  // Legends
+  buildLegend('legend-sensor', ARROYOS.filter(a=>a!=='Rock Ledge'));
+  buildLegend('legend-pit',    ARROYOS.filter(a=>PIT[a]));
+  buildLegend('legend-bare',   ARROYOS.filter(a=>BARE[a]));
+  buildLegend('legend-div',    ARROYOS.filter(a=>DIV[a]));
+  buildLegend('legend-scatter',ARROYOS);
+
+  // Charts
+  drawBoxPlot('chart-sensor', SENSOR, ARROYOS.filter(a=>a!=='Rock Ledge'), 'Soil Moisture (%)', 0, 45, SIG_SENSOR);
+  drawBoxPlot('chart-pit',    PIT,    ARROYOS.filter(a=>PIT[a]),  'Pit Moisture (%)',   0, 35,  SIG_PIT);
+  drawBoxPlot('chart-bare',   BARE,   ARROYOS.filter(a=>BARE[a]), 'Bare Ground (%)',    0, 105, SIG_BARE);
+  drawBoxPlot('chart-div',    DIV,    ARROYOS.filter(a=>DIV[a]),  '# Plant Families',   0, 11,  SIG_DIV);
+  drawScatter('chart-scatter', SCATTER, 'Pit Moisture (%)', '# Plant Families');
+
+  // Tables
+});
+</script>
+</body>
+</html>
