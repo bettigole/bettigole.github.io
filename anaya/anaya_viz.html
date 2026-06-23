@@ -317,14 +317,17 @@ SITES.forEach(d => {
   d.el = el;
 });
 
-// ── Scroll ────────────────────────────────────────────────────
-const progBar = document.getElementById('progress-bar');
-const hint    = document.getElementById('scroll-hint');
-const hudArr  = document.getElementById('hud-arr');
-const hudSite = document.getElementById('hud-site');
+// ── State ─────────────────────────────────────────────────────
+const progBar   = document.getElementById('progress-bar');
+const hint      = document.getElementById('scroll-hint');
+const hudArr    = document.getElementById('hud-arr');
+const hudSite   = document.getElementById('hud-site');
 
-let activeIdx = -1;
+let activeIdx   = -1;   // driven by scroll
+let hoverIdx    = -1;   // driven by mouse — overrides scroll display when set
+let isHovering  = false;
 
+// ── Shared activate/deactivate ─────────────────────────────────
 function highlightDot(svgEl, site, color, on) {
   svgEl.querySelectorAll('circle').forEach(c => {
     if (parseInt(c.dataset.site) === site) {
@@ -340,6 +343,29 @@ function highlightDot(svgEl, site, color, on) {
   });
 }
 
+function activateSite(idx) {
+  if (idx === activeIdx) return;
+  // Deactivate previous
+  if (activeIdx >= 0) {
+    const prev   = SITES[activeIdx];
+    prev.el.classList.remove('active');
+    const pSvg   = prev.arroyo === 'wh' ? svgWH : svgSauna;
+    const pColor = prev.arroyo === 'wh' ? '#D7301F' : '#1D91C0';
+    highlightDot(pSvg, prev.site, pColor, false);
+  }
+  // Activate new
+  const cur    = SITES[idx];
+  cur.el.classList.add('active');
+  const cSvg   = cur.arroyo === 'wh' ? svgWH : svgSauna;
+  const cColor = cur.arroyo === 'wh' ? '#D7301F' : '#1D91C0';
+  highlightDot(cSvg, cur.site, cColor, true);
+
+  activeIdx = idx;
+  hudArr.textContent  = cur.arroyo === 'wh' ? 'Westward Ho (control)' : 'Sauna (treatment)';
+  hudSite.textContent = `Site ${cur.site} · ${cur.moisture.toFixed(1)}% moisture`;
+}
+
+// ── Scroll handler ─────────────────────────────────────────────
 function onScroll() {
   const maxScroll = document.getElementById('scroll-outer').scrollHeight - window.innerHeight;
   const frac = Math.min(1, Math.max(0, window.scrollY / maxScroll));
@@ -347,31 +373,96 @@ function onScroll() {
   progBar.style.width = (frac * 100) + '%';
   hint.style.opacity  = frac < 0.02 ? '1' : '0';
 
-  let best = 0, bestDist = Infinity;
-  SITES.forEach((d,i) => {
-    const dist = Math.abs(d.scrollFrac - frac);
+  // Only update visible site from scroll when not hovering
+  if (!isHovering) {
+    let best = 0, bestDist = Infinity;
+    SITES.forEach((d,i) => {
+      const dist = Math.abs(d.scrollFrac - frac);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    activateSite(best);
+  }
+}
+
+// ── Hover handler on map ───────────────────────────────────────
+const mapInnerEl = document.getElementById('map-inner');
+
+mapInnerEl.addEventListener('mousemove', e => {
+  const rect   = mapInnerEl.getBoundingClientRect();
+  const mouseX = ((e.clientX - rect.left) / rect.width)  * 100;
+  const mouseY = ((e.clientY - rect.top)  / rect.height) * 100;
+
+  // Find nearest site dot by Euclidean distance in % space
+  let best = -1, bestDist = Infinity;
+  SITES.forEach((d, i) => {
+    const dx = d.xPct - mouseX;
+    const dy = d.yPct - mouseY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
     if (dist < bestDist) { bestDist = dist; best = i; }
   });
 
-  if (best !== activeIdx) {
-    if (activeIdx >= 0) {
-      const prev = SITES[activeIdx];
-      prev.el.classList.remove('active');
-      const pSvg   = prev.arroyo === 'wh' ? svgWH : svgSauna;
-      const pColor = prev.arroyo === 'wh' ? '#D7301F' : '#1D91C0';
-      highlightDot(pSvg, prev.site, pColor, false);
-    }
-    const cur  = SITES[best];
-    cur.el.classList.add('active');
-    const cSvg   = cur.arroyo === 'wh' ? svgWH : svgSauna;
-    const cColor = cur.arroyo === 'wh' ? '#D7301F' : '#1D91C0';
-    highlightDot(cSvg, cur.site, cColor, true);
-
-    activeIdx = best;
-    hudArr.textContent  = cur.arroyo === 'wh' ? 'Westward Ho (control)' : 'Sauna (treatment)';
-    hudSite.textContent = `Site ${cur.site} · ${cur.moisture.toFixed(1)}% moisture`;
+  // Only activate if within ~6% of a dot (avoids triggering in empty space)
+  if (best >= 0 && bestDist < 6) {
+    isHovering = true;
+    hoverIdx   = best;
+    activateSite(best);
+  } else {
+    isHovering = false;
+    hoverIdx   = -1;
   }
+});
+
+mapInnerEl.addEventListener('mouseleave', () => {
+  isHovering = false;
+  hoverIdx   = -1;
+  // Immediately re-sync to scroll position
+  onScroll();
+});
+
+// ── Hover on SVG chart dots ────────────────────────────────────
+function addChartHover(svgEl, arroyo) {
+  svgEl.addEventListener('mousemove', e => {
+    const circles = svgEl.querySelectorAll('circle[data-site]');
+    let best = -1, bestDist = Infinity;
+    circles.forEach(circle => {
+      const cx = parseFloat(circle.getAttribute('cx'));
+      const cy = parseFloat(circle.getAttribute('cy'));
+      const svgPt = svgEl.createSVGPoint();
+      svgPt.x = e.clientX; svgPt.y = e.clientY;
+      const pt = svgPt.matrixTransform(svgEl.getScreenCTM().inverse());
+      const dx = pt.x - cx, dy = pt.y - cy;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < bestDist) { bestDist = dist; best = parseInt(circle.dataset.site); }
+    });
+
+    if (bestDist < 20) {
+      // Find SITES index for this arroyo+site
+      const idx = SITES.findIndex(d => d.arroyo === arroyo && d.site === best);
+      if (idx >= 0) {
+        isHovering = true;
+        hoverIdx   = idx;
+        activateSite(idx);
+      }
+    } else {
+      isHovering = false;
+      hoverIdx   = -1;
+    }
+  });
+
+  svgEl.addEventListener('mouseleave', () => {
+    isHovering = false;
+    hoverIdx   = -1;
+    onScroll();
+  });
 }
+
+addChartHover(svgWH,    'wh');
+addChartHover(svgSauna, 'sauna');
+
+// ── Cursor style hint ─────────────────────────────────────────
+mapInnerEl.style.cursor = 'crosshair';
+svgWH.style.cursor      = 'crosshair';
+svgSauna.style.cursor   = 'crosshair';
 
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
