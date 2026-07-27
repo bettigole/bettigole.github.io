@@ -1,5 +1,537 @@
 [
   {
+    "file": "BTB combo 12flatsm.jpg",
+    "lat": 35.437,
+    "lng": -106.063833,
+    "title": "Btb Combo 12Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "BTB combo 14flatsm.jpg",
+    "lat": 35.436,
+    "lng": -106.063,
+    "title": "Btb Combo 14Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "BTB combo 1flatsm.jpg",
+    "lat": 35.436333,
+    "lng": -106.063667,
+    "title": "Btb Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "BTB combo 5flatsm.jpg",
+    "lat": 35.436833,
+    "lng": -106.063833,
+    "title": "Btb Combo 5Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "BTB combo 8flatsm.jpg",
+    "lat": 35.437,
+    "lng": -106.063833,
+    "title": "Btb Combo 8Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Charlie combo1 flatsm.jpg",
+    "lat": 35.436667,
+    "lng": -106.063333,
+    "title": "Charlie Combo1 Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Charlotte combo 3flatsm.jpg",
+    "lat": 35.4375,
+    "lng": -106.06235,
+    "title": "Charlotte Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Cota combo 1flatsm.jpg",
+    "lat": 35.4405,
+    "lng": -106.057333,
+    "title": "Cota Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Driveway combo 2flatsm.jpg",
+    "lat": 35.441,
+    "lng": -106.059167,
+    "title": "Driveway Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Jack combo 2flatsm.jpg",
+    "lat": 35.440167,
+    "lng": -106.057833,
+    "title": "Jack Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Josie combo 1flatsm.jpg",
+    "lat": 35.439167,
+    "lng": -106.0585,
+    "title": "Josie Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Josie combo 4flatsm.jpg",
+    "lat": 35.4386,
+    "lng": -106.06,
+    "title": "Josie Combo 4Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Josie combo 5flatsm.jpg",
+    "lat": 35.439,
+    "lng": -106.061167,
+    "title": "Josie Combo 5Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Liz combo 2flatsm.jpg",
+    "lat": 35.438483,
+    "lng": -106.062733,
+    "title": "Liz Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Next combo 1flatsm.jpg",
+    "lat": 35.437833,
+    "lng": -106.0565,
+    "title": "Next Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Sawwhet combo 11flatlow.jpg",
+    "lat": 35.435333,
+    "lng": -106.066667,
+    "title": "Sawwhet Combo 11Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "Sawwhet combo 18flat.jpg",
+    "lat": 35.435417,
+    "lng": -106.066767,
+    "title": "Sawwhet Combo 18Flat",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "alldone combo 1flatsm.jpg",
+    "lat": 35.439961,
+    "lng": -106.05445,
+    "title": "Alldone Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "alldone combo 2flatsm.jpg",
+    "lat": 35.440167,
+    "lng": -106.054833,
+    "title": "Alldone Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "big rock combo 3flatsm.jpg",
+    "lat": 35.436667,
+    "lng": -106.063,
+    "title": "Big Rock Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "bigrock combo 1flatsm.jpg",
+    "lat": 35.436333,
+    "lng": -106.062833,
+    "title": "Bigrock Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cairn combo 1flatsm.jpg",
+    "lat": 35.4355,
+    "lng": -106.056333,
+    "title": "Cairn Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cairn combo 2flatsm.jpg",
+    "lat": 35.4355,
+    "lng": -106.056633,
+    "title": "Cairn Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cairn combo 5flatsm.jpg",
+    "lat": 35.435917,
+    "lng": -106.056267,
+    "title": "Cairn Combo 5Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cairncorner combo 1flatsm.jpg",
+    "lat": 35.436,
+    "lng": -106.057167,
+    "title": "Cairncorner Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "charlotte combo 4flatsm 2.jpg",
+    "lat": 35.4375,
+    "lng": -106.062417,
+    "title": "Charlotte Combo 4Flatsm 2",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "conglomerate combo 2flatsm.jpg",
+    "lat": 35.438383,
+    "lng": -106.064683,
+    "title": "Conglomerate Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cotton combo 10flatlow.jpg",
+    "lat": 35.434167,
+    "lng": -106.064667,
+    "title": "Cotton Combo 10Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cotton combo 17flatlow.jpg",
+    "lat": 35.434333,
+    "lng": -106.063,
+    "title": "Cotton Combo 17Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cotton combo 6flatlow.jpg",
+    "lat": 35.435333,
+    "lng": -106.064,
+    "title": "Cotton Combo 6Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "cotton combo 7flatlow.jpg",
+    "lat": 35.433833,
+    "lng": -106.063,
+    "title": "Cotton Combo 7Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dammed combo 2flatsm.jpg",
+    "lat": 35.43915,
+    "lng": -106.062783,
+    "title": "Dammed Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dammed combo 4flatsm.jpg",
+    "lat": 35.43915,
+    "lng": -106.063117,
+    "title": "Dammed Combo 4Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dammed combo 6flatsm.jpg",
+    "lat": 35.4395,
+    "lng": -106.063,
+    "title": "Dammed Combo 6Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dammed combo 8flatsm.jpg",
+    "lat": 35.4388,
+    "lng": -106.062717,
+    "title": "Dammed Combo 8Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dike combo 1flatsm.jpg",
+    "lat": 35.435833,
+    "lng": -106.058,
+    "title": "Dike Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "dike combo 2flatsm.jpg",
+    "lat": 35.435753,
+    "lng": -106.057961,
+    "title": "Dike Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "escar combo 3flatlow.jpg",
+    "lat": 35.4367,
+    "lng": -106.06665,
+    "title": "Escar Combo 3Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fenceline combo 1flatsm.jpg",
+    "lat": 35.438167,
+    "lng": -106.054833,
+    "title": "Fenceline Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fenceline combo 2flatsm.jpg",
+    "lat": 35.439,
+    "lng": -106.054167,
+    "title": "Fenceline Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fork combo 2flatsm.jpg",
+    "lat": 35.438067,
+    "lng": -106.064417,
+    "title": "Fork Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fork combo 3flatsm.jpg",
+    "lat": 35.437367,
+    "lng": -106.064133,
+    "title": "Fork Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fork combo 5flatsm.jpg",
+    "lat": 35.437467,
+    "lng": -106.064133,
+    "title": "Fork Combo 5Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fork combo 6flatsm.jpg",
+    "lat": 35.4377,
+    "lng": -106.0642,
+    "title": "Fork Combo 6Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "fork combo 9flatsm.jpg",
+    "lat": 35.43735,
+    "lng": -106.06415,
+    "title": "Fork Combo 9Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "gametrail combo 1flatsm.jpg",
+    "lat": 35.442667,
+    "lng": -106.060667,
+    "title": "Gametrail Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "gerroyo combo 1flatsm.jpg",
+    "lat": 35.436667,
+    "lng": -106.0595,
+    "title": "Gerroyo Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "gerroyo combo 2flatsm.jpg",
+    "lat": 35.43565,
+    "lng": -106.06005,
+    "title": "Gerroyo Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "gerview combo 1flatsm.jpg",
+    "lat": 35.437683,
+    "lng": -106.059317,
+    "title": "Gerview Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "greybottom combo 11flatsm.jpg",
+    "lat": 35.4405,
+    "lng": -106.063333,
+    "title": "Greybottom Combo 11Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "greybottom combo 8flatsm.jpg",
+    "lat": 35.440167,
+    "lng": -106.063333,
+    "title": "Greybottom Combo 8Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "greybottom combo 9flatsm.jpg",
+    "lat": 35.440667,
+    "lng": -106.063333,
+    "title": "Greybottom Combo 9Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "jack combo 1flatsm.jpg",
+    "lat": 35.440167,
+    "lng": -106.058,
+    "title": "Jack Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "oppositespring combo 1flatsm.jpg",
+    "lat": 35.441667,
+    "lng": -106.059833,
+    "title": "Oppositespring Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "potsdamn combo 1flatsm.jpg",
+    "lat": 35.440167,
+    "lng": -106.061,
+    "title": "Potsdamn Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "potsdamn combo 3flatsm.jpg",
+    "lat": 35.4397,
+    "lng": -106.061167,
+    "title": "Potsdamn Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "price combo 2flatlow.jpg",
+    "lat": 35.4355,
+    "lng": -106.069167,
+    "title": "Price Combo 2Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "price combo 4flatlow.jpg",
+    "lat": 35.4356,
+    "lng": -106.069183,
+    "title": "Price Combo 4Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "rockhappy combo 1flatsm 2.jpg",
+    "lat": 35.439667,
+    "lng": -106.0645,
+    "title": "Rockhappy Combo 1Flatsm 2",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "rockhappy combo 2flatsm.jpg",
+    "lat": 35.439667,
+    "lng": -106.064833,
+    "title": "Rockhappy Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "rwell combo 1flatsm.jpg",
+    "lat": 35.441333,
+    "lng": -106.058333,
+    "title": "Rwell Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sam combo 1flatsm.jpg",
+    "lat": 35.438469,
+    "lng": -106.057647,
+    "title": "Sam Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sam combo 2flatsm.jpg",
+    "lat": 35.4385,
+    "lng": -106.057667,
+    "title": "Sam Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sam combo 3flatsm.jpg",
+    "lat": 35.439,
+    "lng": -106.057167,
+    "title": "Sam Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sauna combo 1flatlow.jpg",
+    "lat": 35.4415,
+    "lng": -106.064333,
+    "title": "Sauna Combo 1Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sauna combo 31flatlow.jpg",
+    "lat": 35.4415,
+    "lng": -106.064567,
+    "title": "Sauna Combo 31Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sauna combo 32flatlow.jpg",
+    "lat": 35.440333,
+    "lng": -106.064333,
+    "title": "Sauna Combo 32Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sauna combo 34Flatlow.jpg",
+    "lat": 35.4419,
+    "lng": -106.064867,
+    "title": "Sauna Combo 34Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sauna combo 6flatlow.jpg",
+    "lat": 35.4415,
+    "lng": -106.064833,
+    "title": "Sauna Combo 6Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sawwhet combo 19flat.jpg",
+    "lat": 35.433986,
+    "lng": -106.066147,
+    "title": "Sawwhet Combo 19Flat",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sawwhet combo 1flatlow.jpg",
+    "lat": 35.4351,
+    "lng": -106.066467,
+    "title": "Sawwhet Combo 1Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sawwhet combo 26flatlow.jpg",
+    "lat": 35.43415,
+    "lng": -106.065667,
+    "title": "Sawwhet Combo 26Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "sawwhet combo 30flatlow.jpg",
+    "lat": 35.435883,
+    "lng": -106.066933,
+    "title": "Sawwhet Combo 30Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "tim combo 1flatsm.jpg",
+    "lat": 35.436333,
+    "lng": -106.055333,
+    "title": "Tim Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "tiny combo flatlow.jpg",
+    "lat": 35.436133,
+    "lng": -106.066083,
+    "title": "Tiny Combo Flatlow",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "tweendikes combo 2flatsm.jpg",
+    "lat": 35.438167,
+    "lng": -106.059167,
+    "title": "Tweendikes Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
     "file": "waterfall combo 1flatsm.jpg",
     "lat": 35.4415,
     "lng": -106.060667,
