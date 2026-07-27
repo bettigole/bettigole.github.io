@@ -1,0 +1,23 @@
+[
+  {
+    "file": "waterfall combo 1flatsm.jpg",
+    "lat": 35.4415,
+    "lng": -106.060667,
+    "title": "Waterfall Combo 1Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "waterfall combo 2flatsm.jpg",
+    "lat": 35.4415,
+    "lng": -106.0605,
+    "title": "Waterfall Combo 2Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  },
+  {
+    "file": "waterfall combo 3flatsm.jpg",
+    "lat": 35.4415,
+    "lng": -106.060194,
+    "title": "Waterfall Combo 3Flatsm",
+    "caption": "Add a description for this photo in data/photos.json."
+  }
+]
