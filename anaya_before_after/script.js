@@ -28,7 +28,7 @@ async function init() {
   const center = withCoords.length ? [withCoords[0].lat, withCoords[0].lng] : FALLBACK_CENTER;
   const map = L.map("map", { scrollWheelZoom: false }).setView(center, 17);
 
- // Esri World Imagery — free satellite basemap, no API key required.
+  // Esri World Imagery — free satellite basemap, no API key required.
   L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     {
@@ -69,7 +69,12 @@ async function init() {
         icon: markerIcon(false),
       })
         .addTo(map)
-        .bindPopup(`<strong>${photo.title}</strong>`);
+        .bindTooltip(photo.title, {
+          permanent: true,
+          direction: "right",
+          offset: [10, 0],
+          className: "dam-label",
+        });
       markers[i] = marker;
     }
   });
@@ -81,13 +86,15 @@ async function init() {
     if (activeSlide) activeSlide.classList.add("active");
 
     Object.entries(markers).forEach(([i, marker]) => {
-      marker.setIcon(markerIcon(Number(i) === index));
+      const isActive = Number(i) === index;
+      marker.setIcon(markerIcon(isActive));
+      const tooltipEl = marker.getTooltip()?.getElement();
+      if (tooltipEl) tooltipEl.classList.toggle("active", isActive);
     });
 
     const marker = markers[index];
     if (marker) {
       map.flyTo(marker.getLatLng(), map.getZoom(), { duration: 0.6 });
-      marker.openPopup();
     }
   }
 
@@ -107,10 +114,10 @@ async function init() {
   // Activate the first slide by default.
   if (photos.length) setActive(0);
 
-  // Clicking a marker scrolls to its slide.
+  // Clicking a marker jumps straight to its slide (no scroll animation).
   Object.entries(markers).forEach(([i, marker]) => {
     marker.on("click", () => {
-      document.getElementById(`slide-${i}`).scrollIntoView({ behavior: "smooth" });
+      document.getElementById(`slide-${i}`).scrollIntoView({ behavior: "auto" });
     });
   });
 }
