@@ -14,8 +14,22 @@ const PHOTOS_DIR = "photos/";
 const FALLBACK_CENTER = [35.4415, -106.0605];
 
 async function init() {
-  const res = await fetch(DATA_URL);
-  const photos = await res.json();
+  let photos;
+  try {
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error(`${DATA_URL} responded with ${res.status}`);
+    photos = await res.json();
+  } catch (err) {
+    console.error("Could not load photo data:", err);
+    document.body.innerHTML =
+      '<div style="padding:2rem;font-family:sans-serif;color:#f2efe6;">' +
+      "<h2>Couldn't load photo data</h2>" +
+      "<p>This page needs to be viewed over HTTP (e.g. the live GitHub Pages URL, " +
+      "or a local server like <code>python3 -m http.server</code>) — opening " +
+      "index.html directly by double-clicking it blocks the data/photos.json fetch.</p>" +
+      "</div>";
+    return;
+  }
 
   const viewerImg = document.getElementById("viewer-img");
   const withCoords = photos.filter(
@@ -42,6 +56,15 @@ async function init() {
     const bounds = L.latLngBounds(withCoords.map((p) => [p.lat, p.lng]));
     map.fitBounds(bounds, { padding: [40, 40] });
   }
+
+  // Leaflet measures its container at creation time. If the flexbox layout
+  // hasn't finished settling yet (fonts/images loading, etc.) that
+  // measurement can be wrong, leaving the map showing only part of its
+  // pane. Re-measuring after paint and on resize keeps it filling the
+  // pane correctly.
+  requestAnimationFrame(() => map.invalidateSize());
+  window.addEventListener("load", () => map.invalidateSize());
+  window.addEventListener("resize", () => map.invalidateSize());
 
   const markerIcon = (active) =>
     L.divIcon({
