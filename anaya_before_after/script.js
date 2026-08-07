@@ -1,12 +1,10 @@
 /*
- * Scrollytelling photo tour with a synced Leaflet locator map.
+ * Click-to-view photo tour with a Leaflet locator map.
  *
  * Reads data/photos.json (built by scripts/build_photo_data.py from each
- * photo's GPS EXIF data). For each entry it:
- *   1. Renders an image slide in the #scrolly column.
- *   2. Drops a marker on the map.
- * As the user scrolls, an IntersectionObserver watches which slide is
- * centered in the viewport and highlights + pans to the matching marker.
+ * photo's GPS EXIF data). For each entry it drops a marker on the map.
+ * Clicking a marker swaps the displayed photo and highlights that marker's
+ * label — the map itself never pans or zooms after the initial load.
  */
 
 const DATA_URL = "data/photos.json";
@@ -19,7 +17,7 @@ async function init() {
   const res = await fetch(DATA_URL);
   const photos = await res.json();
 
-  const scrolly = document.getElementById("scrolly");
+  const viewerImg = document.getElementById("viewer-img");
   const withCoords = photos.filter(
     (p) => typeof p.lat === "number" && typeof p.lng === "number"
   );
@@ -38,6 +36,8 @@ async function init() {
     }
   ).addTo(map);
 
+  // Fit the map to show every point once, on load only. The map does not
+  // move again after this — clicking a marker never pans or zooms it.
   if (withCoords.length > 1) {
     const bounds = L.latLngBounds(withCoords.map((p) => [p.lat, p.lng]));
     map.fitBounds(bounds, { padding: [40, 40] });
@@ -52,18 +52,8 @@ async function init() {
 
   const markers = {};
 
-  // --- Build slides + markers ---
+  // --- Build markers ---
   photos.forEach((photo, i) => {
-    const slide = document.createElement("section");
-    slide.className = "slide";
-    slide.id = `slide-${i}`;
-    slide.dataset.index = i;
-
-    slide.innerHTML = `
-      <img src="${PHOTOS_DIR}${photo.file}" alt="${photo.title}" loading="lazy" />
-    `;
-    scrolly.appendChild(slide);
-
     if (typeof photo.lat === "number" && typeof photo.lng === "number") {
       const marker = L.marker([photo.lat, photo.lng], {
         icon: markerIcon(false),
@@ -79,11 +69,13 @@ async function init() {
     }
   });
 
-  // --- Sync scroll position to map ---
+  // --- Show a photo + highlight its marker (no map movement) ---
   function setActive(index) {
-    document.querySelectorAll(".slide").forEach((el) => el.classList.remove("active"));
-    const activeSlide = document.getElementById(`slide-${index}`);
-    if (activeSlide) activeSlide.classList.add("active");
+    const photo = photos[index];
+    if (!photo) return;
+
+    viewerImg.src = `${PHOTOS_DIR}${photo.file}`;
+    viewerImg.alt = photo.title;
 
     Object.entries(markers).forEach(([i, marker]) => {
       const isActive = Number(i) === index;
@@ -96,35 +88,16 @@ async function init() {
       const tooltipEl = marker.getTooltip()?.getElement();
       if (tooltipEl) tooltipEl.classList.toggle("active", isActive);
     });
-
-    const marker = markers[index];
-    if (marker) {
-      map.flyTo(marker.getLatLng(), map.getZoom(), { duration: 0.6 });
-    }
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActive(Number(entry.target.dataset.index));
-        }
-      });
-    },
-    { threshold: 0.55 }
-  );
-
-  document.querySelectorAll(".slide").forEach((slide) => observer.observe(slide));
-
-  // Activate the first slide by default.
+  // Show the first photo by default.
   if (photos.length) setActive(0);
 
-  // Clicking a marker jumps straight to its slide (no scroll animation)
-  // and immediately shows that marker's label.
+  // Clicking a marker swaps the photo and highlights the label —
+  // the map stays exactly where it is.
   Object.entries(markers).forEach(([i, marker]) => {
     marker.on("click", () => {
       setActive(Number(i));
-      document.getElementById(`slide-${i}`).scrollIntoView({ behavior: "auto" });
     });
   });
 }
